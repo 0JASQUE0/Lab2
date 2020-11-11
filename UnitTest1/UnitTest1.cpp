@@ -24,7 +24,14 @@ namespace UnitTest1
 			Assert::IsTrue(index == -1);
 		}
 
-		TEST_METHOD(Quick_Sort)
+		TEST_METHOD(Binary_Search3)
+		{
+			int array[5] = { 3,3,3,3,3 };
+			int index = BinarySearch(array, 0, 4, 3);
+			Assert::IsTrue(index == 2);
+		}
+		// несколько одинаковых, только одно отличается от других
+		TEST_METHOD(Quick_Sort1) 
 		{
 			int array[5] = { 5,2,3,9,4 };
 			QuickSort(array, 0, 4);
@@ -35,7 +42,29 @@ namespace UnitTest1
 			Assert::IsTrue(array[4] == 9);
 		}
 
-		TEST_METHOD(Insertion_Sort)
+		TEST_METHOD(Quick_Sort2)
+		{
+			int array[5] = { 2,3,2,9,3 };
+			QuickSort(array, 0, 4);
+			Assert::IsTrue(array[0] == 2);
+			Assert::IsTrue(array[1] == 2);
+			Assert::IsTrue(array[2] == 3);
+			Assert::IsTrue(array[3] == 3);
+			Assert::IsTrue(array[4] == 9);
+		}
+
+		TEST_METHOD(Quick_Sort3)
+		{
+			int array[5] = { 9,2,2,2,2 };
+			QuickSort(array, 0, 4);
+			Assert::IsTrue(array[0] == 2);
+			Assert::IsTrue(array[1] == 2);
+			Assert::IsTrue(array[2] == 2);
+			Assert::IsTrue(array[3] == 2);
+			Assert::IsTrue(array[4] == 9);
+		}
+
+		TEST_METHOD(Insertion_Sort1)
 		{
 			int array[5] = { 5,2,3,9,4 };
 			InsertionSort(array, 5);
@@ -46,7 +75,29 @@ namespace UnitTest1
 			Assert::IsTrue(array[4] == 9);
 		}
 
-		TEST_METHOD(Bogo_Sort)
+		TEST_METHOD(Insertion_Sort2)
+		{
+			int array[5] = { 5,5,3,3,4 };
+			InsertionSort(array, 5);
+			Assert::IsTrue(array[0] == 3);
+			Assert::IsTrue(array[1] == 3);
+			Assert::IsTrue(array[2] == 4);
+			Assert::IsTrue(array[3] == 5);
+			Assert::IsTrue(array[4] == 5);
+		}
+
+		TEST_METHOD(Insertion_Sort3)
+		{
+			int array[5] = { 5,5,3,5,5 };
+			InsertionSort(array, 5);
+			Assert::IsTrue(array[0] == 3);
+			Assert::IsTrue(array[1] == 5);
+			Assert::IsTrue(array[2] == 5);
+			Assert::IsTrue(array[3] == 5);
+			Assert::IsTrue(array[4] == 5);
+		}
+
+		TEST_METHOD(Bogo_Sort1)
 		{
 			int array[5] = { 5,2,3,9,4 };
 			BogoSort(array, 5);
@@ -57,7 +108,29 @@ namespace UnitTest1
 			Assert::IsTrue(array[4] == 9);
 		}
 
-		TEST_METHOD(Counting_Sort)
+		TEST_METHOD(Bogo_Sort2)
+		{
+			int array[5] = { 15,9,3,9,3 };
+			BogoSort(array, 5);
+			Assert::IsTrue(array[0] == 3);
+			Assert::IsTrue(array[1] == 3);
+			Assert::IsTrue(array[2] == 9);
+			Assert::IsTrue(array[3] == 9);
+			Assert::IsTrue(array[4] == 15);
+		}
+
+		TEST_METHOD(Bogo_Sort3)
+		{
+			int array[5] = { 5,5,5,55,5 };
+			BogoSort(array, 5);
+			Assert::IsTrue(array[0] == 5);
+			Assert::IsTrue(array[1] == 5);
+			Assert::IsTrue(array[2] == 5);
+			Assert::IsTrue(array[3] == 5);
+			Assert::IsTrue(array[4] == 55);
+		}
+
+		TEST_METHOD(Counting_Sort1)
 		{
 			int array[5] = { 5,2,3,9,4 };
 			CountingSort(array, 5);
@@ -65,6 +138,28 @@ namespace UnitTest1
 			Assert::IsTrue(array[1] == 3);
 			Assert::IsTrue(array[2] == 4);
 			Assert::IsTrue(array[3] == 5);
+			Assert::IsTrue(array[4] == 9);
+		}
+
+		TEST_METHOD(Counting_Sort2)
+		{
+			int array[5] = { 55,2,3,2,55 };
+			CountingSort(array, 5);
+			Assert::IsTrue(array[0] == 2);
+			Assert::IsTrue(array[1] == 2);
+			Assert::IsTrue(array[2] == 3);
+			Assert::IsTrue(array[3] == 55);
+			Assert::IsTrue(array[4] == 55);
+		}
+
+		TEST_METHOD(Counting_Sort3)
+		{
+			int array[5] = { 9,9,9,9,4 };
+			CountingSort(array, 5);
+			Assert::IsTrue(array[0] == 4);
+			Assert::IsTrue(array[1] == 9);
+			Assert::IsTrue(array[2] == 9);
+			Assert::IsTrue(array[3] == 9);
 			Assert::IsTrue(array[4] == 9);
 		}
 	};

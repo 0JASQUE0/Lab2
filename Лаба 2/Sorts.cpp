@@ -92,7 +92,7 @@ void CountingSort(int* array, int n)
     int c[128] = { 0 };
   
     for (int i = 0; i < n; i++)
-        c[array[i]] =+ 1;
+        c[array[i]] = c[array[i]] + 1;
 
     int b = 0;
     for (int i = 0; i < 128; i++) {
