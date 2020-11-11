@@ -7,14 +7,14 @@ using namespace std;
 
 int main()
 {
-	int array[100000];
+	int array[1000];
 	double time = 0;
 
 	int N = sizeof(array) / sizeof(array[0]);
 
 	for (int k = 0; k < 10; k++) {
 		double start = clock();
-		for (int i = 0; i < 100000; i++) {
+		for (int i = 0; i < 1000; i++) {
 			array[i] = rand();
 		}
 
@@ -25,11 +25,6 @@ int main()
 	}
 
 	cout << time / 10.0 / CLK_TCK;
-
-	//for (int i = 0; i < 10; i++) {
-	//	cout << array[i] << endl;
-	//}
-
 
 	return 0;
 }
