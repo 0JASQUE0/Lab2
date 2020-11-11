@@ -97,6 +97,39 @@ namespace UnitTest1
 			Assert::IsTrue(array[4] == 5);
 		}
 
+		TEST_METHOD(Bubble_Sort1)
+		{
+			int array[5] = { 5,2,3,9,4 };
+			BubbleSort(array, 5);
+			Assert::IsTrue(array[0] == 2);
+			Assert::IsTrue(array[1] == 3);
+			Assert::IsTrue(array[2] == 4);
+			Assert::IsTrue(array[3] == 5);
+			Assert::IsTrue(array[4] == 9);
+		}
+
+		TEST_METHOD(Bubble_Sort2)
+		{
+			int array[5] = { 5,5,3,3,4 };
+			BubbleSort(array, 5);
+			Assert::IsTrue(array[0] == 3);
+			Assert::IsTrue(array[1] == 3);
+			Assert::IsTrue(array[2] == 4);
+			Assert::IsTrue(array[3] == 5);
+			Assert::IsTrue(array[4] == 5);
+		}
+
+		TEST_METHOD(Bubble_Sort3)
+		{
+			int array[5] = { 5,5,3,5,5 };
+			BubbleSort(array, 5);
+			Assert::IsTrue(array[0] == 3);
+			Assert::IsTrue(array[1] == 5);
+			Assert::IsTrue(array[2] == 5);
+			Assert::IsTrue(array[3] == 5);
+			Assert::IsTrue(array[4] == 5);
+		}
+
 		TEST_METHOD(Bogo_Sort1)
 		{
 			int array[5] = { 5,2,3,9,4 };

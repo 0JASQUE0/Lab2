@@ -7,20 +7,21 @@ using namespace std;
 
 int main()
 {
-	int array[1000];
+	int array[100000];
 	double time = 0;
 
 	int N = sizeof(array) / sizeof(array[0]);
 
 	for (int k = 0; k < 10; k++) {
 		double start = clock();
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < 100000; i++) {
 			array[i] = rand();
 		}
 
-		QuickSort(array, 0, N - 1);
+		BubbleSort(array, N);
 
 		double end = clock();
+		cout << (end - start) / CLK_TCK << endl;
 		time += end - start;
 	}
 
