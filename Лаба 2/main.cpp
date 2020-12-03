@@ -7,18 +7,21 @@ using namespace std;
 
 int main()
 {
-	int array[100000];
+	setlocale(LC_ALL, "rus");
+
+	int array[1000];
 	double time = 0;
 
 	int N = sizeof(array) / sizeof(array[0]);
 
-	for (int k = 0; k < 10; k++) {
+
+	for (int k = 0; k < 1; k++) {
 		double start = clock();
-		for (int i = 0; i < 100000; i++) {
+		for (int i = 0; i < 1000; i++) {
 			array[i] = rand();
 		}
 
-		BubbleSort(array, N);
+		InsertionSort(array, N);
 
 		double end = clock();
 		cout << (end - start) / CLK_TCK << endl;

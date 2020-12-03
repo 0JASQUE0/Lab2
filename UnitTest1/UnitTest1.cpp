@@ -30,7 +30,7 @@ namespace UnitTest1
 			int index = BinarySearch(array, 0, 4, 3);
 			Assert::IsTrue(index == 2);
 		}
-		// несколько одинаковых, только одно отличается от других
+
 		TEST_METHOD(Quick_Sort1) 
 		{
 			int array[5] = { 5,2,3,9,4 };
