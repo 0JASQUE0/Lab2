@@ -21,10 +21,10 @@ int BinarySearch(int* array, int left, int right, int key)
     }
 }
 
-void QuickSort(int* array, int low, int high)
+void QuickSort(int* array, int left, int right)
 {
-    int i = low;
-    int j = high;
+    int i = left;
+    int j = right;
     int pivot = array[(i + j) / 2];
     int temp;
 
@@ -42,17 +42,17 @@ void QuickSort(int* array, int low, int high)
             j--;
         }
     }
-    if (j > low)
-        QuickSort(array, low, j);
-    if (i < high)
-        QuickSort(array, i, high);
+    if (j > left)
+        QuickSort(array, left, j);
+    if (i < right)
+        QuickSort(array, i, right);
 }
 
-void InsertionSort(int* array, int n)
+void InsertionSort(int* array, int sizeOfArray)
 {
     int key;
     int j;
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i < sizeOfArray; i++) {
         key = array[i];
         j = i - 1;
         while (j >= 0 && array[j] > key) {
@@ -63,11 +63,11 @@ void InsertionSort(int* array, int n)
     }
 }
 
-void BubbleSort(int* array, int n)
+void BubbleSort(int* array, int sizeOfArray)
 {
     int temp;
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
+    for (int i = 0; i < sizeOfArray - 1; i++) {
+        for (int j = 0; j < sizeOfArray - i - 1; j++) {
             if (array[j] > array[j + 1]) {
                 temp = array[j];
                 array[j] = array[j + 1];
@@ -77,20 +77,20 @@ void BubbleSort(int* array, int n)
     }
 }
 
-void BogoSort(int* array, int n)
+void BogoSort(int* array, int sizeOfArray)
 {
     bool sorted = false;
     int index;
     int temp;
     while (sorted == false) {
-        for (int i = 0; i < n; i++) {
-            index = rand() % n;
+        for (int i = 0; i < sizeOfArray; i++) {
+            index = rand() % sizeOfArray;
             temp = array[i];
             array[i] = array[index];
             array[index] = temp;
         }
 
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 0; i < sizeOfArray - 1; i++) {
             sorted = true;
             if (array[i] > array[i + 1]) {
                 sorted = false;
@@ -101,18 +101,18 @@ void BogoSort(int* array, int n)
     }
 }
 
-void CountingSort(int* array, int n)
+void CountingSort(int* array, int sizeOfArray)
 {
-    int c[128] = { 0 };
+    int countArray[256] = { 0 };
   
-    for (int i = 0; i < n; i++)
-        c[array[i]] = c[array[i]] + 1;
+    for (int i = 0; i < sizeOfArray; i++)
+        countArray[array[i]] = countArray[array[i]] + 1;
 
-    int b = 0;
-    for (int i = 0; i < 128; i++) {
-        for (int j = 0; j < c[i]; j++) {
-            array[b] = i;
-            b = b + 1;
+    int counter = 0;
+    for (int i = 0; i < 256; i++) {
+        for (int j = 0; j < countArray[i]; j++) {
+            array[counter] = i;
+            counter++;
         }
     }
 }
